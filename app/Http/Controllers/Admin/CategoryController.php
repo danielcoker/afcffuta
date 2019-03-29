@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use App\Jobs\CreateCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,6 +13,15 @@ class CategoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
+    }
+
+    public function index()
+    {
+        $categories = Category::latest()->get();
+
+        $counter = 1;
+
+        return view('admin.categories.index', compact('categories', 'counter'));
     }
 
     public function create()
@@ -27,4 +37,27 @@ class CategoryController extends Controller
 
         return redirect()->route('admin.categories.create');
     }
+
+    // public function edit(Category $category)
+    // {
+    //     return view('admin.categories.edit', compact('category'));
+    // }
+
+    // public function update(CategoryRequest $erquest, Category $category)
+    // {
+    //     $category = $this->dispatchNow(UpdateCategory::fromRequest($request, $category));
+
+    //     $this->success('category.updated');
+
+    //     return redirect()->route('admin.categories.index');
+    // }
+
+    // public function destroy(Category $category)
+    // {
+    //     $category->delete();
+
+    //     $this->success('category.deleted');
+
+    //     return redirect()->route('admin.categories.index');
+    // }
 }
