@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use App\Jobs\CreateCategory;
+use App\Jobs\UpdateCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
@@ -38,19 +39,19 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.create');
     }
 
-    // public function edit(Category $category)
-    // {
-    //     return view('admin.categories.edit', compact('category'));
-    // }
+    public function edit(Category $category)
+    {
+        return view('admin.categories.edit', compact('category'));
+    }
 
-    // public function update(CategoryRequest $erquest, Category $category)
-    // {
-    //     $category = $this->dispatchNow(UpdateCategory::fromRequest($request, $category));
+    public function update(CategoryRequest $request, Category $category)
+    {
+        $category = $this->dispatchNow(UpdateCategory::fromRequest($category, $request));
 
-    //     $this->success('category.updated');
+        $this->success('category.updated');
 
-    //     return redirect()->route('admin.categories.index');
-    // }
+        return redirect()->route('admin.categories.index');
+    }
 
     // public function destroy(Category $category)
     // {
