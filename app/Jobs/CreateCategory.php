@@ -33,9 +33,11 @@ class CreateCategory implements ShouldQueue
     
     public function handle()
     {
-        Category::create([
-            'title' => $this->title,
-            'slug' => slug($this->title)
-        ]);
+        $category = Category::create([
+                        'title' => $this->title,
+                        'slug' => slug($this->title)
+                    ]);
+
+        return $category;
     }
 }
