@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request)
     {
-        $thred = $this->dispatchNow(CreateCategory::fromRequest($request));
+        $category = $this->dispatchNow(CreateCategory::fromRequest($request));
 
         $this->success('category.created');
 
