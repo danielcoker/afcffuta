@@ -53,12 +53,12 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index');
     }
 
-    // public function destroy(Category $category)
-    // {
-    //     $category->delete();
+    public function destroy(Category $category)
+    {
+        $category->delete();
 
-    //     $this->success('category.deleted');
+        $this->success('category.deleted');
 
-    //     return redirect()->route('admin.categories.index');
-    // }
+        return redirect()->route('admin.categories.index');
+    }
 }

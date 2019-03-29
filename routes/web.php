@@ -35,5 +35,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('password.reset');
 
     // Categories
-    Route::resource('/categories', 'Admin\CategoryController');
+    Route::resource('/categories', 'Admin\CategoryController')->except('destroy');
+    Route::get('/categories/{category}/delete', 'Admin\CategoryController@destroy')->name('categories.destroy');
 });
