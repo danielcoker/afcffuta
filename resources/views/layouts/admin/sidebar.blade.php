@@ -24,7 +24,7 @@
                     </a>
                     <ul class="sub-menu">
                         @foreach ($categories as $category)
-                            <li><a class="{{ ($category->id == Request::segment(3)) ? 'active' : '' }}" href="">{{ $category->title }}</a></li>
+                            <li><a class="{{ ($category->id == Request::segment(3)) ? 'active' : '' }}" href="{{ route('admin.posts.index', $category->id) }}">{{ $category->title }}</a></li>
                         @endforeach
                     </ul>
                 </li>

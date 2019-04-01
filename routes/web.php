@@ -37,4 +37,13 @@ Route::prefix('admin')->name('admin.')->group(function() {
     // Categories
     Route::resource('/categories', 'Admin\CategoryController')->except('destroy');
     Route::get('/categories/{category}/delete', 'Admin\CategoryController@destroy')->name('categories.destroy');
+
+    // Posts
+    Route::get('/posts/{category}/posts', 'Admin\PostController@index')->name('posts.index');
+    Route::get('/posts/{category}/create', 'Admin\PostController@create')->name('posts.create');
+    Route::post('/posts/{category}', 'Admin\PostController@store')->name('posts.store');
+    Route::get('/posts/{category}/{post}/edit', 'Admin\PostController@edit')->name('posts.edit');
+    Route::put('/posts/{category}/{post}', 'Admin\PostController@update')->name('posts.update');
+    Route::get('/posts/{category}/delete', 'Admin\PostController@destroy')->name('posts.delete');
+    Route::get('/posts/{category}/{post}', 'Admin\PostController@show')->name('posts.show');
 });
