@@ -27,34 +27,16 @@
                             <li><a class="{{ ($category->id == Request::segment(3)) ? 'active' : '' }}" href="{{ route('posts.index', $category->id) }}">{{ $category->title }}</a></li>
                         @endforeach
                     </ul>
-                </li>
+                </li> --}}
                 <li class="{{ (Request::is('admin/categories/*') || Request::is('admin/categories')) ? 'active-page' : '' }}">
                     <a href="javascript:void(0)">
                         <i class="menu-icon fa fa-bars text-small"></i><span>Categories</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul class="sub-menu">
-                        <li><a class="{{ (Route::currentRouteName() == 'categories.index') ? 'active' : '' }}" href="{{ route('categories.index') }}">View Categories</a></li>
-                        <li><a class="{{ (Route::currentRouteName() == 'categories.create' || Route::currentRouteName() == 'categories.edit') ? 'active' : '' }}" href="{{ route('categories.create') }}">Create Category</a></li>
+                        <li><a class="{{ (Route::currentRouteName() == 'admin.categories.index') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">View Categories</a></li>
+                        <li><a class="{{ (Route::currentRouteName() == 'admin.categories.create' || Route::currentRouteName() == 'admin.categories.edit') ? 'active' : '' }}" href="{{ route('admin.categories.create') }}">Create Category</a></li>
                     </ul>
                 </li>
-                <li class="{{ (Request::is('admin/articles/*') || Request::is('admin/articles')) ? 'active-page' : '' }}">
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-newspaper text-small"></i><span>Articles</span><i class="accordion-icon fa fa-angle-left"></i>
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a class="{{ (Route::currentRouteName() == 'articles.index') ? 'active' : '' }}" href="{{ route('articles.index') }}">View Articles</a></li>
-                        <li><a class="{{ (Route::currentRouteName() == 'articles.create' || Route::currentRouteName() == 'articles.edit') ? 'active' : '' }}" href="{{ route('articles.create') }}">Create Article</a></li>
-                    </ul>
-                </li>
-                <li class="{{ (Request::is('admin/podcasts/*') || Request::is('admin/podcasts')) ? 'active-page' : '' }}">
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-podcast text-small"></i><span>Podcast</span><i class="accordion-icon fa fa-angle-left"></i>
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a class="{{ (Route::currentRouteName() == 'podcasts.index') ? 'active' : '' }}" href="{{ route('podcasts.index') }}">View Podcasts</a></li>
-                        <li><a class="{{ (Route::currentRouteName() == 'podcasts.create' || Route::currentRouteName() == 'podcasts.edit') ? 'active' : '' }}" href="{{ route('podcasts.create') }}">Create Podcast</a></li>
-                    </ul>
-                </li> --}}
 
                 <li class="menu-divider"></li>
 
