@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Schema;
+use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

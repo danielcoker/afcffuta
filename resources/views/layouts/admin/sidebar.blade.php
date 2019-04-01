@@ -18,16 +18,16 @@
                     </a>
                 </li> --}}
                 <li class="menu-divider"></li>
-                {{-- <li class="{{ (Request::is('admin/resources/*')) ? 'active-page' : '' }}"">
+                <li class="{{ (Request::is('admin/library/*')) ? 'active-page' : '' }}">
                     <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-newspaper text-small"></i><span>Resources</span><i class="accordion-icon fa fa-angle-left"></i>
+                        <i class="menu-icon fa fa-newspaper text-small"></i><span>Library</span><i class="accordion-icon fa fa-angle-left"></i>
                     </a>
                     <ul class="sub-menu">
                         @foreach ($categories as $category)
-                            <li><a class="{{ ($category->id == Request::segment(3)) ? 'active' : '' }}" href="{{ route('posts.index', $category->id) }}">{{ $category->title }}</a></li>
+                            <li><a class="{{ ($category->id == Request::segment(3)) ? 'active' : '' }}" href="">{{ $category->title }}</a></li>
                         @endforeach
                     </ul>
-                </li> --}}
+                </li>
                 <li class="{{ (Request::is('admin/categories/*') || Request::is('admin/categories')) ? 'active-page' : '' }}">
                     <a href="javascript:void(0)">
                         <i class="menu-icon fa fa-bars text-small"></i><span>Categories</span><i class="accordion-icon fa fa-angle-left"></i>
