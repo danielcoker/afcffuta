@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
         $this->success('category.created');
 
-        return redirect()->route('admin.categories.create');
+        return redirect()->route('admin.categories.index');
     }
 
     public function edit(Category $category)
