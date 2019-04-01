@@ -3,12 +3,11 @@
 namespace Tests\Feature;
 
 use App\Admin;
-use Tests\TestCase;
+use Tests\BrowserKitTestCase;
 use App\Models\Category;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class CategoryTest extends TestCase
+class CategoryTest extends BrowserKitTestCase
 {
     use RefreshDatabase;
 
@@ -17,12 +16,20 @@ class CategoryTest extends TestCase
     {
         $admin = $this->loginAsAdmin();
 
-        $category = factory(Category::class)->create([
-            'title' => 'Title'
-        ]);
+        $category = factory(Category::class)->create(['title' => 'First Category']);
+        $category = factory(Category::class)->create(['title' => 'Second Category']);
         
-        $response = $this->get('/admin/categories');
+        $this->visit('/admin/categories')
+                ->see('Show all categories')
+                ->see('First Category')
+                ->see('Second Category');
+    }
 
-        $response->assertSeeInOrder([1, 'Title']);
+    /** @test */
+    public function we_can_delete_a_category()
+    {
+        $admin = $this->loginAsAdmin();
+
+
     }
 }

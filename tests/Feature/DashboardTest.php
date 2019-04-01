@@ -2,17 +2,15 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class DashboardTest extends TestCase
+class DashboardTest extends BrowserKitTestCase
 {
     /** @test */
     public function requires_login()
     {
-        $response = $this->get('/admin/dashboard');
-
-        $response->assertRedirect('/admin/login');
+        $this->visit('/admin/dashboard')
+                ->seePageIs('/admin/login');
     }
 }
