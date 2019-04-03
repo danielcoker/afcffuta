@@ -39,11 +39,11 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/categories/{category}/delete', 'Admin\CategoryController@destroy')->name('categories.destroy');
 
     // Posts
-    Route::get('/posts/{category}/posts', 'Admin\PostController@index')->name('posts.index');
-    Route::get('/posts/{category}/create', 'Admin\PostController@create')->name('posts.create');
-    Route::post('/posts/{category}', 'Admin\PostController@store')->name('posts.store');
-    Route::get('/posts/{category}/{post}/edit', 'Admin\PostController@edit')->name('posts.edit');
-    Route::put('/posts/{category}/{post}', 'Admin\PostController@update')->name('posts.update');
-    Route::get('/posts/{category}/delete', 'Admin\PostController@destroy')->name('posts.destroy');
-    Route::get('/posts/{category}/{post}', 'Admin\PostController@show')->name('posts.show');
+    Route::get('/library/{category}/posts', 'Admin\PostController@index')->name('posts.index');
+    Route::get('/library/{category}/posts/create', 'Admin\PostController@create')->name('posts.create');
+    Route::post('/library/{category}/posts', 'Admin\PostController@store')->name('posts.store');
+    Route::get('/library/{category}/posts/{post}/edit', 'Admin\PostController@edit')->name('posts.edit');
+    Route::put('/library/{category}/posts/{post}', 'Admin\PostController@update')->name('posts.update');
+    Route::get('/library/{category}/posts/{post}/delete', 'Admin\PostController@destroy')->name('posts.destroy');
+    Route::get('/library/{category}/posts/{post}', 'Admin\PostController@show')->name('posts.show');
 });
