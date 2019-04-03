@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Post;
 use App\Models\Category;
 use App\Jobs\CreatePost;
 use Illuminate\Http\Request;
@@ -18,7 +19,11 @@ class PostController extends Controller
     
     public function index(Category $category)
     {
-        return view('admin.post.index', compact('category'));
+        $posts = Post::latest()->get();
+
+        $counter = 1;
+
+        return view('admin.post.index', compact('category', 'posts', 'counter'));
     }
 
     public function show()

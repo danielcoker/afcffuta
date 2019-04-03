@@ -44,6 +44,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::post('/posts/{category}', 'Admin\PostController@store')->name('posts.store');
     Route::get('/posts/{category}/{post}/edit', 'Admin\PostController@edit')->name('posts.edit');
     Route::put('/posts/{category}/{post}', 'Admin\PostController@update')->name('posts.update');
-    Route::get('/posts/{category}/delete', 'Admin\PostController@destroy')->name('posts.delete');
+    Route::get('/posts/{category}/delete', 'Admin\PostController@destroy')->name('posts.destroy');
     Route::get('/posts/{category}/{post}', 'Admin\PostController@show')->name('posts.show');
 });

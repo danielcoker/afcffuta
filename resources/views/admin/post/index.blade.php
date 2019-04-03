@@ -39,11 +39,11 @@
                                 </thead>
 
                                 <tbody>
-                                    {{-- @foreach ($data['posts'] as $post)
+                                    @foreach ($posts as $post)
                                         <tr>
-                                            <td>{{ $data['counter']++ }}</td>
+                                            <td>{{ $counter++ }}</td>
                                             <td>{{ $post->title }}</td>
-                                            <td>{{ $post->author->name }}</td>
+                                            <td>Name</td>
                                             <td>
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -51,14 +51,14 @@
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
                                                         <li><a href="#">View Post</a></li>
-                                                        <li><a href="{{ route('posts.edit', [$data['category']->id, $post->id]) }}">Edit Post</a></li>
+                                                        <li><a href="{{ route('admin.posts.edit', [$category->id, $post->id]) }}">Edit Post</a></li>
                                                         <li class="divider"></li>
-                                                        <li><a href="{{ route('posts.destroy', [$data['category']->id, $post->id]) }}" onclick="return confirm('Are you sure you want to delete this post?')">Delete Post</a></li>
+                                                        <li><a href="{{ route('admin.posts.destroy', [$category->id, $post->id]) }}" onclick="return confirm('Are you sure you want to delete this post?')">Delete Post</a></li>
                                                     </ul>
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

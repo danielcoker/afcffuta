@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Admin;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -14,4 +15,9 @@ class Post extends Model
         'thumbnail',
         'banner'
     ];
+
+    // public function author()
+    // {
+    //     return $this->hasMany(Admin::class);
+    // }
 }

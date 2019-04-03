@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Post;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,4 +36,9 @@ class Admin extends Authenticatable
     {
         $this->notify(new AdminResetPasswordNotification($token));
     }
+
+    // public function posts()
+    // {
+    //     return $this->hasMany(Post::class);
+    // }
 }
