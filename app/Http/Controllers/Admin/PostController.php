@@ -19,7 +19,7 @@ class PostController extends Controller
     
     public function index(Category $category)
     {
-        $posts = Post::latest()->get();
+        $posts = Post::where('category_id', $category->id)->latest()->get();
 
         $counter = 1;
 
